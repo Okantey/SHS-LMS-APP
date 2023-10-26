@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   TextInput,
+  ScrollView,
 } from "react-native";
 import { styles } from "../../global.styles";
 import logo from "../../../assets/images/new-lms.png";
@@ -70,34 +71,36 @@ export default SelectSchool = () => {
           </Text>
         </View>
       ) : (
-        schools.map((school) => {
-          return (
-            <TouchableOpacity
-              key={school.id}
-              className="w-full flex items-center justify-between flex-row border-t border-b py-2 my-2"
-              onPress={() =>
-                navigation.navigate("Login", {
-                  name: school.name,
-                  id: school.id,
-                })
-              }
-            >
-              <View className="flex flex-row items-center">
-                <Image
-                  source={{ uri: `${baseURL}${school.logo}` }}
-                  className="w-8 h-12 object-contain"
-                />
-                <Text
-                  style={{ fontFamily: "lato-regular" }}
-                  className="text-xl ml-3 text-gray-600"
-                >
-                  {school.name}
-                </Text>
-              </View>
-              <Feather name="arrow-right-circle" size={30} color="gray" />
-            </TouchableOpacity>
-          );
-        })
+        <ScrollView className="w-full" showsVerticalScrollIndicator={false}>
+          {schools.map((school) => {
+            return (
+              <TouchableOpacity
+                key={school.id}
+                className="w-full flex items-center justify-between flex-row border-t border-b py-2 my-2"
+                onPress={() =>
+                  navigation.navigate("Login", {
+                    name: school.name,
+                    schoolID: school.id,
+                  })
+                }
+              >
+                <View className="flex flex-row items-center">
+                  <Image
+                    source={{ uri: `${baseURL}${school.logo}` }}
+                    className="w-8 h-12 object-contain"
+                  />
+                  <Text
+                    style={{ fontFamily: "lato-regular" }}
+                    className="text-xl ml-3 text-gray-600"
+                  >
+                    {school.name}
+                  </Text>
+                </View>
+                <Feather name="arrow-right-circle" size={30} color="gray" />
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
       )}
     </SafeAreaView>
   );
