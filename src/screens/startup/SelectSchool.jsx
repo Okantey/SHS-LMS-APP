@@ -1,12 +1,20 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Text, Image, View, ActivityIndicator } from "react-native";
+import {
+  Text,
+  Image,
+  View,
+  ActivityIndicator,
+  TouchableOpacity,
+} from "react-native";
 import { styles } from "../../global.styles";
 import logo from "../../../assets/images/new-lms.png";
 import { useState, useEffect } from "react";
 import Axios from "../../api/Axios";
 import { colors } from "../../global.styles";
+import { useNavigation } from "@react-navigation/native";
 
 export default SelectSchool = () => {
+  const navigation = useNavigation();
   let baseURL = "https://kwesistigar.pythonanywhere.com";
   const SCHOOLS_URL = "/lms/schools";
   const [schools, setSchools] = useState([]);
@@ -43,23 +51,29 @@ export default SelectSchool = () => {
       {isLoading ? (
         <View className="flex justify-center items-center mt-6">
           <ActivityIndicator color={colors.orange} size="large" />
-          <Text style={styles.basic} className="text-orange text-xl">
+          <Text style={styles.basic} className="text-orange text-xl my-2">
             Getting schools data
           </Text>
         </View>
       ) : (
         schools.map((school) => {
           return (
-            <View
+            <TouchableOpacity
               key={school.id}
-              className="w-full flex items-center flex-row border-t border-b py-2"
+              className="w-full flex items-center flex-row border-t border-b py-2 my-2"
+              onPress={() => navigation.navigate("Login", { id: school.id })}
             >
               <Image
                 source={{ uri: `${baseURL}${school.logo}` }}
-                className="w-20 h-24 object-contain"
+                className="w-8 h-12 object-contain"
               />
-              <Text style={{ fontFamily: "lato-regular" }}>{school.name}</Text>
-            </View>
+              <Text
+                style={{ fontFamily: "lato-regular" }}
+                className="text-xl ml-3 text-gray-600"
+              >
+                {school.name}
+              </Text>
+            </TouchableOpacity>
           );
         })
       )}
