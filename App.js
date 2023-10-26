@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from "react"
+import "react-native-gesture-handler";
+import "react-native-safe-area-context"
+import * as Font from 'expo-font';
+import MainNavigation from "./src/routes/MainNavigation";
+
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+	const [fontsLoaded, setFontsLoaded] = useState(false)
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	const loadFonts = async () => {
+		await Font.loadAsync({
+			"lato-light": require("./assets/fonts/Lato-Light.ttf"),
+			"lato-regular": require("./assets/fonts/Lato-Regular.ttf"),
+			"lato-bold": require("./assets/fonts/Lato-Bold.ttf")
+		})
+		setFontsLoaded(true)
+	}
+
+	useEffect(() => {
+		loadFonts()
+	}, [])
+	return (
+		fontsLoaded && (<MainNavigation />)
+	);
+}
