@@ -5,6 +5,7 @@ import {
   View,
   ActivityIndicator,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
 import { styles } from "../../global.styles";
 import logo from "../../../assets/images/new-lms.png";
@@ -12,6 +13,8 @@ import { useState, useEffect } from "react";
 import Axios from "../../api/Axios";
 import { colors } from "../../global.styles";
 import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 export default SelectSchool = () => {
   const navigation = useNavigation();
@@ -48,10 +51,21 @@ export default SelectSchool = () => {
       <Text style={styles.basic} className="text-xl my-2 text-center">
         Please select your school to continue
       </Text>
+      <View className="flex w-full my-2 flex-row items-center bg-gray-50 border-gray-30 border p-4 rounded-md shadow-inner">
+        <TextInput
+          placeholder="Search for a school"
+          className="flex-1 text-lg"
+          style={{ fontFamily: "lato-regular" }}
+        />
+        <AntDesign name="search1" size={24} color="black" />
+      </View>
       {isLoading ? (
         <View className="flex justify-center items-center mt-6">
           <ActivityIndicator color={colors.orange} size="large" />
-          <Text style={styles.basic} className="text-orange text-xl my-2">
+          <Text
+            style={{ fontFamily: "lato-bold" }}
+            className="text-orange text-xl my-2"
+          >
             Getting schools data
           </Text>
         </View>
@@ -60,19 +74,27 @@ export default SelectSchool = () => {
           return (
             <TouchableOpacity
               key={school.id}
-              className="w-full flex items-center flex-row border-t border-b py-2 my-2"
-              onPress={() => navigation.navigate("Login", { id: school.id })}
+              className="w-full flex items-center justify-between flex-row border-t border-b py-2 my-2"
+              onPress={() =>
+                navigation.navigate("Login", {
+                  name: school.name,
+                  id: school.id,
+                })
+              }
             >
-              <Image
-                source={{ uri: `${baseURL}${school.logo}` }}
-                className="w-8 h-12 object-contain"
-              />
-              <Text
-                style={{ fontFamily: "lato-regular" }}
-                className="text-xl ml-3 text-gray-600"
-              >
-                {school.name}
-              </Text>
+              <View className="flex flex-row items-center">
+                <Image
+                  source={{ uri: `${baseURL}${school.logo}` }}
+                  className="w-8 h-12 object-contain"
+                />
+                <Text
+                  style={{ fontFamily: "lato-regular" }}
+                  className="text-xl ml-3 text-gray-600"
+                >
+                  {school.name}
+                </Text>
+              </View>
+              <Feather name="arrow-right-circle" size={30} color="gray" />
             </TouchableOpacity>
           );
         })
