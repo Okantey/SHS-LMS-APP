@@ -1,3 +1,8 @@
 export { default as SplashScreen } from "./SplashScreen"
 export { default as SelectSchool } from "./startup/SelectSchool"
 export { default as Login } from "./startup/Login"
+export { default as Dashboard } from "./dashboard/Dashboard"
+export { default as Messages } from "./messages/Messages"
+export { default as Notifications } from "./notifications/Notifications"
+export { default as Planner } from "./planner/Planner"
+export { default as Account } from "./account/Account"

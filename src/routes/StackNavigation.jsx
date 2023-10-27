@@ -1,6 +1,15 @@
-import { SelectSchool, SplashScreen, Login } from "./../screens";
+import {
+  SelectSchool,
+  SplashScreen,
+  Login,
+  Dashboard,
+  Messages,
+  Notifications,
+  Planner,
+  Account,
+} from "./../screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-// import TabsNavigation from "./TabsNavigation";
+import TabNavigation from "./TabNavigation";
 
 const Stack = createNativeStackNavigator();
 
@@ -8,8 +17,7 @@ const MainStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="StartUp" component={StartUp} />
-      {/* <Stack.Screen name="AuthStack" component={AuthStack} /> */}
-      {/* <Stack.Screen name="Tabs" component={TabsNavigation} /> */}
+      <Stack.Screen name="Tabs" component={TabNavigation} />
     </Stack.Navigator>
   );
 };
@@ -24,4 +32,52 @@ const StartUp = () => {
   );
 };
 
-export { MainStack, StartUp };
+const DashboardStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Dashboard" component={Dashboard} />
+    </Stack.Navigator>
+  );
+};
+
+const MessagesStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Messages" component={Messages} />
+    </Stack.Navigator>
+  );
+};
+
+const NotificationsStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Notifications" component={Notifications} />
+    </Stack.Navigator>
+  );
+};
+
+const PlannerStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Planner" component={Planner} />
+    </Stack.Navigator>
+  );
+};
+
+const AccountStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Account" component={Account} />
+    </Stack.Navigator>
+  );
+};
+
+export {
+  MainStack,
+  StartUp,
+  DashboardStack,
+  MessagesStack,
+  NotificationsStack,
+  PlannerStack,
+  AccountStack,
+};

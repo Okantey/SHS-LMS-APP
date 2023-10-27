@@ -9,7 +9,6 @@ import {
   ScrollView,
 } from "react-native";
 import { styles } from "../../global.styles";
-import logo from "../../../assets/images/new-lms.png";
 import { useState, useEffect } from "react";
 import Axios from "../../api/Axios";
 import { colors } from "../../global.styles";
@@ -44,7 +43,12 @@ export default SelectSchool = () => {
   return (
     <SafeAreaView className="bg-white flex-1 px-4 pt-6">
       <View className="w-full flex flex-row justify-center my-4">
-        <Image source={logo} />
+        <Image
+          source={{
+            uri: "https://img.freepik.com/premium-vector/flat-web-template-with-lms-concept-design-concept-learning-management-system_100456-8728.jpg?size=626&ext=jpg&ga=GA1.1.941783686.1692185846&semt=ais",
+          }}
+          className="w-40 h-32 object-cover"
+        />
       </View>
       <Text style={styles.headerText} className="text-center">
         Welcome Back!
@@ -52,23 +56,25 @@ export default SelectSchool = () => {
       <Text style={styles.basic} className="text-xl my-2 text-center">
         Please select your school to continue
       </Text>
-      <View className="flex w-full my-2 flex-row items-center bg-gray-50 border-gray-30 border p-4 rounded-md shadow-inner">
+      <View className="flex w-full my-2 flex-row items-center bg-gray-50 border-blue border rounded-lg shadow-inner">
         <TextInput
           placeholder="Search for a school"
-          className="flex-1 text-lg"
+          className="flex-1 text-lg px-2"
           style={{ fontFamily: "lato-regular" }}
         />
-        <AntDesign name="search1" size={24} color="black" />
+        <View className="bg-blue p-4">
+          <AntDesign name="search1" size={24} color="white" />
+        </View>
       </View>
       {isLoading ? (
         <View className="flex justify-center items-center mt-6">
           <Text
             style={{ fontFamily: "lato-bold" }}
-            className="text-orange text-xl my-2"
+            className="text-blue text-xl my-2"
           >
             Getting schools data
           </Text>
-          <ActivityIndicator color={colors.orange} size="large" />
+          <ActivityIndicator color={colors.blue} size="large" />
         </View>
       ) : (
         <ScrollView className="w-full" showsVerticalScrollIndicator={false}>
@@ -87,7 +93,7 @@ export default SelectSchool = () => {
                 <View className="flex flex-row items-center">
                   <Image
                     source={{ uri: `${baseURL}${school.logo}` }}
-                    className="w-8 h-12 object-contain"
+                    className="w-8 h-12 object-cover"
                   />
                   <Text
                     style={{ fontFamily: "lato-regular" }}

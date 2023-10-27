@@ -1,6 +1,5 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image, ActivityIndicator, Text } from "react-native";
-import logo from "../../assets/images/new-lms.png";
 import { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "../global.styles";
@@ -14,11 +13,16 @@ export default SplashScreen = () => {
   });
   return (
     <SafeAreaView className="bg-white flex-1 justify-center items-center">
-      <Image source={logo} />
-      <Text style={styles.headerText} className="my-2 mb-6">
+      <Image
+        source={{
+          uri: "https://img.freepik.com/premium-vector/flat-web-template-with-lms-concept-design-concept-learning-management-system_100456-8728.jpg?size=626&ext=jpg&ga=GA1.1.941783686.1692185846&semt=ais",
+        }}
+        className="w-44 h-44 object-cover"
+      />
+      <Text style={styles.headerText} className="mb-4">
         SHS LMS APP
       </Text>
-      <ActivityIndicator size="small" color="#FF8300" />
+      <ActivityIndicator size="small" color="#0492c2" />
     </SafeAreaView>
   );
 };

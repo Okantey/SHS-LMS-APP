@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Text,
   View,
@@ -12,8 +12,8 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../../components";
 import { styles } from "../../global.styles";
-import logo from "../../../assets/images/new-lms.png";
 import Axios from "../../api/Axios";
+import { AuthContext } from "../../context/AuthContext";
 
 export default Login = ({ navigation, route }) => {
   const { name, schoolID } = route.params;
@@ -22,6 +22,7 @@ export default Login = ({ navigation, route }) => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const loginURL = "/auth/login/student";
+  const { setUser, setToken } = useContext(AuthContext);
 
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -31,7 +32,13 @@ export default Login = ({ navigation, route }) => {
         student_id: studentID,
         pin: pin,
       });
-      console.log(response.data.data);
+      if (response.status === 200) {
+        const loadedUser = response.data.data;
+        const token = response.data.token;
+        setUser(loadedUser);
+        setToken(token);
+        navigation.navigate("Tabs");
+      }
     } catch (err) {
       err && setError(err.message);
       console.log(error);
@@ -52,7 +59,12 @@ export default Login = ({ navigation, route }) => {
   return (
     <SafeAreaView className="bg-white pt-6 flex-1 flex px-4">
       <View className="flex flex-row justify-center items-center">
-        <Image source={logo} className="w-20 h-24" />
+        <Image
+          source={{
+            uri: "https://img.freepik.com/premium-vector/flat-web-template-with-lms-concept-design-concept-learning-management-system_100456-8728.jpg?size=626&ext=jpg&ga=GA1.1.941783686.1692185846&semt=ais",
+          }}
+          className="w-32 h-28"
+        />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>

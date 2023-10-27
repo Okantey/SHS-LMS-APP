@@ -7,6 +7,8 @@ module.exports = {
         orange: "#FF8300",
         white: "#ffffff",
         black: "#000000",
+        smoke: "#F5F5F5",
+        blue: "#3b82f6"
       },
     },
   },
