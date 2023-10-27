@@ -62,13 +62,13 @@ export default SelectSchool = () => {
       </View>
       {isLoading ? (
         <View className="flex justify-center items-center mt-6">
-          <ActivityIndicator color={colors.orange} size="large" />
           <Text
             style={{ fontFamily: "lato-bold" }}
             className="text-orange text-xl my-2"
           >
             Getting schools data
           </Text>
+          <ActivityIndicator color={colors.orange} size="large" />
         </View>
       ) : (
         <ScrollView className="w-full" showsVerticalScrollIndicator={false}>
@@ -76,7 +76,7 @@ export default SelectSchool = () => {
             return (
               <TouchableOpacity
                 key={school.id}
-                className="w-full flex items-center justify-between flex-row border-t border-b py-2 my-2"
+                className="w-full flex items-center justify-between flex-row border-b py-2 my-2"
                 onPress={() =>
                   navigation.navigate("Login", {
                     name: school.name,
