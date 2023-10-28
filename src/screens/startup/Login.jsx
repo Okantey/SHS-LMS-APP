@@ -103,7 +103,6 @@ export default Login = ({ navigation, route }) => {
               <TextInput
                 placeholder="Enter student pin"
                 className=" w-full rounded-lg my-2 px-2 text-base shadow flex-1"
-                keyboardType="numeric"
                 style={styles.basic}
                 value={pin}
                 secureTextEntry={showPassword ? false : true}
