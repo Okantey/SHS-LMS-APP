@@ -5,8 +5,12 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { colors } from "../../global.styles";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default Account = () => {
+  const { user } = useContext(AuthContext);
+  const email = user.user_info.email;
   const accountLinks = [
     {
       id: 1,

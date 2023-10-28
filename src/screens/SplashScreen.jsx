@@ -17,11 +17,11 @@ export default SplashScreen = () => {
         source={{
           uri: "https://img.freepik.com/premium-vector/flat-web-template-with-lms-concept-design-concept-learning-management-system_100456-8728.jpg?size=626&ext=jpg&ga=GA1.1.941783686.1692185846&semt=ais",
         }}
-        className="w-44 h-44 object-cover"
+        className="w-52 h-52 object-cover"
       />
-      <Text style={styles.headerText} className="mb-4">
+      {/* <Text style={styles.headerText} className="mb-4">
         SHS LMS APP
-      </Text>
+      </Text> */}
       <ActivityIndicator size="small" color="#0492c2" />
     </SafeAreaView>
   );

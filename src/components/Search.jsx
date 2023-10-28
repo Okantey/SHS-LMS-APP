@@ -10,7 +10,7 @@ export default Search = () => {
         <TextInput
           keyboardType="default"
           className="w-full mx-2 text-lg"
-          placeholder="Find your courses here..."
+          placeholder="Find your subjects here..."
           style={styles.basic}
         />
       </View>

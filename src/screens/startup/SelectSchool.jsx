@@ -28,7 +28,6 @@ export default SelectSchool = () => {
       const response = await Axios.get(SCHOOLS_URL);
       const loadedSchools = response.data.data;
       setSchools(loadedSchools);
-      console.log(response.data.data);
     } catch (err) {
       console.log(err.message);
     } finally {

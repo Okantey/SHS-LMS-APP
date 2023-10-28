@@ -11,19 +11,24 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../../components";
-import { styles } from "../../global.styles";
+import { colors, styles } from "../../global.styles";
 import Axios from "../../api/Axios";
 import { AuthContext } from "../../context/AuthContext";
+import { Feather } from "@expo/vector-icons";
 
 export default Login = ({ navigation, route }) => {
   const { name, schoolID } = route.params;
   const [studentID, setStudentID] = useState("");
   const [pin, setPin] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const loginURL = "/auth/login/student";
   const { setUser, setToken } = useContext(AuthContext);
 
+  const handleVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
@@ -88,19 +93,29 @@ export default Login = ({ navigation, route }) => {
               keyboardType="numeric"
               style={styles.basic}
               value={studentID}
+              autoFocus
               onChangeText={(text) => setStudentID(text)}
             />
             <Text style={styles.basic} className="text-lg">
               Pin
             </Text>
-            <TextInput
-              placeholder="Enter student pin"
-              className="border border-gray w-full p-4 rounded-lg my-2 text-base shadow"
-              keyboardType="numeric"
-              style={styles.basic}
-              value={pin}
-              onChangeText={(text) => setPin(text)}
-            />
+            <View className="flex flex-row border border-gray items-center p-2 rounded-md">
+              <TextInput
+                placeholder="Enter student pin"
+                className=" w-full rounded-lg my-2 px-2 text-base shadow flex-1"
+                keyboardType="numeric"
+                style={styles.basic}
+                value={pin}
+                secureTextEntry={showPassword ? false : true}
+                onChangeText={(text) => setPin(text)}
+              />
+              <Feather
+                name={showPassword ? "eye" : "eye-off"}
+                size={24}
+                color={colors.blue}
+                onPress={handleVisibility}
+              />
+            </View>
           </View>
           <Button
             name={

@@ -36,7 +36,7 @@ export default TabNavigation = () => {
           tabBarIcon: (props) => (
             <FontAwesome
               name="dashboard"
-              size={32}
+              size={36}
               color={props.focused ? "#3b82f6" : "gray"}
             />
           ),
