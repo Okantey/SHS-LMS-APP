@@ -103,7 +103,6 @@ export default Dashboard = () => {
                 style={{
                   flexDirection: "row",
                   width: "100%",
-                  // Adjust width based on your item size
                 }}
                 className="my-4"
               >
