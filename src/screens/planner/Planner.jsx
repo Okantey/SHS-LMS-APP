@@ -3,7 +3,7 @@ import { Text } from "react-native";
 
 export default Planner = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView className="flex-1 px-4 bg-white">
       <Text>Hello Planner</Text>
     </SafeAreaView>
   );

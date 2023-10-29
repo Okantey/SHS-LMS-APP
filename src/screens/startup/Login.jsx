@@ -25,6 +25,7 @@ export default Login = ({ navigation, route }) => {
   const [isLoading, setIsLoading] = useState(false);
   const loginURL = "/auth/login/student";
   const { setUser, setToken } = useContext(AuthContext);
+  const year = new Date().getFullYear();
 
   const handleVisibility = () => {
     setShowPassword(!showPassword);
@@ -89,7 +90,7 @@ export default Login = ({ navigation, route }) => {
             </Text>
             <TextInput
               placeholder="Enter student id"
-              className="border border-gray w-full p-4 rounded-lg my-2 text-base shadow"
+              className="border border-gray w-full p-4 rounded-lg my-2 shadow-sm shadow-white text-base"
               keyboardType="numeric"
               style={styles.basic}
               value={studentID}
@@ -102,7 +103,7 @@ export default Login = ({ navigation, route }) => {
             <View className="flex flex-row border border-gray items-center p-2 rounded-md">
               <TextInput
                 placeholder="Enter student pin"
-                className=" w-full rounded-lg my-2 px-2 text-base shadow flex-1"
+                className=" w-full rounded-lg my-2 px-2 shadow-sm shadow-white text-base flex-1"
                 style={styles.basic}
                 value={pin}
                 secureTextEntry={showPassword ? false : true}
@@ -127,8 +128,19 @@ export default Login = ({ navigation, route }) => {
             role="submit"
             onPress={handleSubmit}
           />
+          <View className="w-full flex flex-row justify-center items-center">
+            <Text
+              style={{ fontFamily: "lato-bold", marginTop: 30 }}
+              className="text-lg"
+            >
+              Copyright © {year}
+              {"  "}
+              <Text style={{ color: colors.blue, fontFamily: "lato-bold" }}>
+                SHS LMS APP
+              </Text>
+            </Text>
+          </View>
         </View>
-        <StatusBar style="dark" />
       </ScrollView>
     </SafeAreaView>
   );

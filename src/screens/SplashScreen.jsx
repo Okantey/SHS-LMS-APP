@@ -8,7 +8,7 @@ export default SplashScreen = () => {
   const navigation = useNavigation();
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate("SelectSchool");
+      navigation.navigate("SelectRole");
     }, 3000);
   });
   return (

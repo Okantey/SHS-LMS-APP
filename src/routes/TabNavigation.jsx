@@ -23,8 +23,8 @@ export default TabNavigation = () => {
         tabBarStyle: {
           width: "100%",
           alignSelf: "center",
-          height: 70,
-          paddingVertical: 5,
+          height: 65,
+          paddingVertical: 0,
           backgroundColor: "white",
         },
       }}
@@ -36,7 +36,7 @@ export default TabNavigation = () => {
           tabBarIcon: (props) => (
             <FontAwesome
               name="dashboard"
-              size={36}
+              size={32}
               color={props.focused ? "#3b82f6" : "gray"}
             />
           ),
@@ -49,7 +49,7 @@ export default TabNavigation = () => {
           tabBarIcon: (props) => (
             <FontAwesome
               name="wechat"
-              size={32}
+              size={30}
               color={props.focused ? "#3b82f6" : "gray"}
             />
           ),
@@ -62,7 +62,7 @@ export default TabNavigation = () => {
           tabBarIcon: (props) => (
             <FontAwesome
               name="bell"
-              size={32}
+              size={30}
               color={props.focused ? "#3b82f6" : "gray"}
             />
           ),
@@ -75,7 +75,7 @@ export default TabNavigation = () => {
           tabBarIcon: (props) => (
             <FontAwesome
               name="calendar"
-              size={32}
+              size={30}
               color={props.focused ? "#3b82f6" : "gray"}
             />
           ),
@@ -88,7 +88,7 @@ export default TabNavigation = () => {
           tabBarIcon: (props) => (
             <Ionicons
               name="person"
-              size={32}
+              size={30}
               color={props.focused ? "#3b82f6" : "gray"}
             />
           ),

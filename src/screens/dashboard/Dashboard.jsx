@@ -17,7 +17,7 @@ export default Dashboard = () => {
   const name = user.user_info.first_name;
 
   const getRandomColor = (() => {
-    const colorList = ["yellow", "blue", "pink", "purple", "violet"];
+    const colorList = ["#FFD700", "#33A3FF", "#33FF57", "#FF3385", "#33A3FF"];
     let currentIndex = 0;
     return () => {
       const color = colorList[currentIndex];
@@ -47,20 +47,14 @@ export default Dashboard = () => {
   }, []);
 
   const filteredSubjects = subjects.filter((subject) =>
-    subject.name.toLowerCase().includes(search.toLowerCase())
+    subject.subject_name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <SafeAreaView className="flex-1 bg-white px-4">
       {isLoading ? (
         <View className="flex-1 justify-center items-center">
-          <Text
-            style={{ fontFamily: "lato-bold" }}
-            className="text-2xl text-blue mb-2"
-          >
-            Loading
-          </Text>
-          <ActivityIndicator size="large" color={colors.blue} />
+          <ActivityIndicator size={50} color={colors.blue} />
         </View>
       ) : (
         <View className="w-full">
@@ -86,10 +80,10 @@ export default Dashboard = () => {
               className="w-12 h-12 object-contain rounded-full"
             />
           </View>
+          <Search search={search} setSearch={setSearch} />
           <ScrollView showsVerticalScrollIndicator={false}>
-            <Search search={search} setSearch={setSearch} />
             <View className="flex flex-row items-center justify-between mb-4">
-              <Text style={{ fontFamily: "lato-bold" }} className="text-xl">
+              <Text style={{ fontFamily: "lato-bold" }} className="text-2xl">
                 Subjects
               </Text>
               <MaterialCommunityIcons
@@ -98,18 +92,12 @@ export default Dashboard = () => {
                 color="black"
               />
             </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  width: "100%",
-                }}
-                className="my-4"
-              >
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View className="my-2 w-full flex">
                 {filteredSubjects.map((subject) => (
                   <View
-                    key={subject.code}
-                    className="flex w-max h-32 justify-center items-center rounded-xl mr-4"
+                    key={subject.subject_code}
+                    className="flex w-full h-32 justify-center items-center rounded-xl mb-2"
                   >
                     <View
                       style={{
@@ -122,13 +110,13 @@ export default Dashboard = () => {
                         size={36}
                         color="black"
                       />
+                      <Text
+                        style={{ fontFamily: "lato-regular" }}
+                        className="text-lg mt-2 w-full text-center"
+                      >
+                        {subject.subject_name}
+                      </Text>
                     </View>
-                    <Text
-                      style={{ fontFamily: "lato-regular" }}
-                      className="text-lg w-full"
-                    >
-                      {subject.name}
-                    </Text>
                   </View>
                 ))}
               </View>

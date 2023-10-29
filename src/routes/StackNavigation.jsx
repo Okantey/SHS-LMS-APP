@@ -1,6 +1,7 @@
 import {
   SelectSchool,
   SplashScreen,
+  SelectRole,
   Login,
   Dashboard,
   Messages,
@@ -26,6 +27,7 @@ const StartUp = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="SplashScreen" component={SplashScreen} />
+      <Stack.Screen name="SelectRole" component={SelectRole} />
       <Stack.Screen name="SelectSchool" component={SelectSchool} />
       <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
