@@ -82,7 +82,7 @@ export default Dashboard = ({ navigation }) => {
                 Dashboard
               </Text>
               <Text style={{ fontFamily: "lato-regular", fontSize: 20 }}>
-                Welcome,
+                Welcome,{" "}
                 <Text className="text-blue" style={{ fontFamily: "lato-bold" }}>
                   {name}
                 </Text>
