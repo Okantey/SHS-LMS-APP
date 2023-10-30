@@ -7,12 +7,12 @@ export default SelectRole = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView className="px-4 bg-white flex-1 justify-center items-center">
-      <View className="w-full flex flex-row justify-center my-4">
+      <View className="w-full flex flex-row justify-center mb-20">
         <Image
           source={{
             uri: "https://img.freepik.com/premium-vector/flat-web-template-with-lms-concept-design-concept-learning-management-system_100456-8728.jpg?size=626&ext=jpg&ga=GA1.1.941783686.1692185846&semt=ais",
           }}
-          className="w-40 h-32 object-cover"
+          className="w-44 h-32 object-cover"
         />
       </View>
       <TouchableOpacity

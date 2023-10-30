@@ -8,6 +8,7 @@ import {
   Notifications,
   Planner,
   Account,
+  SubjectDetails,
 } from "./../screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TabNavigation from "./TabNavigation";
@@ -34,10 +35,14 @@ const StartUp = () => {
   );
 };
 
-const DashboardStack = () => {
+const DashboardStack = ({ navigation, route }) => {
+  if (route.state && route.state.index > 0) {
+    navigation.setOptions({ tabBarVisible: false });
+  }
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen name="SubjectDetails" component={SubjectDetails} />
     </Stack.Navigator>
   );
 };

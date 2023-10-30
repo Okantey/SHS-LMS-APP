@@ -1,5 +1,12 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Text, View, Image, ScrollView, ActivityIndicator } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  ScrollView,
+  ActivityIndicator,
+  TouchableOpacity,
+} from "react-native";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Search } from "../../components";
@@ -8,7 +15,7 @@ import Axios from "../../api/Axios";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default Dashboard = () => {
+export default Dashboard = ({ navigation }) => {
   const { user, token } = useContext(AuthContext);
   const [subjects, setSubjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -95,7 +102,8 @@ export default Dashboard = () => {
             <ScrollView showsVerticalScrollIndicator={false}>
               <View className="my-2 w-full flex">
                 {filteredSubjects.map((subject) => (
-                  <View
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("SubjectDetails")}
                     key={subject.subject_code}
                     className="flex w-full h-32 justify-center items-center rounded-xl mb-2"
                   >
@@ -117,7 +125,7 @@ export default Dashboard = () => {
                         {subject.subject_name}
                       </Text>
                     </View>
-                  </View>
+                  </TouchableOpacity>
                 ))}
               </View>
             </ScrollView>
