@@ -43,7 +43,7 @@ export default SubjectDetails = ({ navigation }) => {
         </View>
       ) : (
         <ScrollView
-          className="flex-1 -mt-8"
+          className="flex-1 -mt-6"
           showsVerticalScrollIndicator={false}
         >
           <Text
