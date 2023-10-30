@@ -40,7 +40,6 @@ export default Dashboard = ({ navigation }) => {
         headers: { Authorization: `Token ${token}` },
       });
       const loadedSubjects = await response.data.data;
-      console.log(loadedSubjects);
       setSubjects(loadedSubjects);
     } catch (err) {
       console.log(err.message);
@@ -60,7 +59,9 @@ export default Dashboard = ({ navigation }) => {
   const handleNavigation = (name) => {
     if (name) {
       setSubject(name);
-      navigation.navigate("SubjectStack");
+      navigation.navigate("SubjectStack", {
+        screen: "SubjectDetails",
+      });
     }
   };
 

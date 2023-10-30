@@ -15,10 +15,11 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TabNavigation from "./TabNavigation";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomTopTab from "../components/CustomTopTab";
 import { colors } from "../global.styles";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 const Stack = createNativeStackNavigator();
 const TopTab = createMaterialTopTabNavigator();
@@ -53,9 +54,10 @@ const DashboardStack = () => {
 };
 
 const SubjectStack = () => {
+  const { subject } = useContext(AuthContext);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-      <CustomTopTab name="Hello" />
+      <CustomTopTab name={subject} />
       <TopTab.Navigator
         screenOptions={{
           tabBarLabelStyle: { fontFamily: "lato-bold", fontSize: 14 },
