@@ -26,7 +26,6 @@ export default TabNavigation = () => {
           height: 65,
           paddingVertical: 0,
           backgroundColor: "white",
-          display: "none",
         },
       }}
     >

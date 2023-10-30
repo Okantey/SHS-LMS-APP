@@ -1,7 +1,8 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image, ActivityIndicator, Text } from "react-native";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
+
 import { styles } from "../global.styles";
 
 export default SplashScreen = () => {
@@ -9,7 +10,7 @@ export default SplashScreen = () => {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate("SelectRole");
-    }, 3000);
+    }, 2000);
   });
   return (
     <SafeAreaView className="bg-white flex-1 justify-center items-center">

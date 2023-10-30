@@ -16,7 +16,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default Dashboard = ({ navigation }) => {
-  const { user, token } = useContext(AuthContext);
+  const { user, token, setSubject } = useContext(AuthContext);
   const [subjects, setSubjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -56,6 +56,13 @@ export default Dashboard = ({ navigation }) => {
   const filteredSubjects = subjects.filter((subject) =>
     subject.subject_name.toLowerCase().includes(search.toLowerCase())
   );
+
+  const handleNavigation = (name) => {
+    if (name) {
+      setSubject(name);
+      navigation.navigate("SubjectStack");
+    }
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-white px-4">
@@ -103,7 +110,7 @@ export default Dashboard = ({ navigation }) => {
               <View className="my-2 w-full flex">
                 {filteredSubjects.map((subject) => (
                   <TouchableOpacity
-                    onPress={() => navigation.navigate("SubjectDetails")}
+                    onPress={() => handleNavigation(subject.subject_name)}
                     key={subject.subject_code}
                     className="flex w-full h-32 justify-center items-center rounded-xl mb-2"
                   >

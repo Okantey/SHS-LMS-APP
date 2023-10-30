@@ -5,8 +5,11 @@ const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [token, setToken] = useState(null);
+  const [subject, setSubject] = useState("");
   return (
-    <AuthContext.Provider value={{ user, setUser, token, setToken }}>
+    <AuthContext.Provider
+      value={{ user, setUser, token, setToken, subject, setSubject }}
+    >
       {children}
     </AuthContext.Provider>
   );

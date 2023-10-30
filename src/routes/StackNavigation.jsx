@@ -9,11 +9,19 @@ import {
   Planner,
   Account,
   SubjectDetails,
+  SubjectParticipants,
+  SubjectGrades,
 } from "./../screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TabNavigation from "./TabNavigation";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import CustomTopTab from "../components/CustomTopTab";
+import { colors } from "../global.styles";
 
 const Stack = createNativeStackNavigator();
+const TopTab = createMaterialTopTabNavigator();
 
 const MainStack = () => {
   return (
@@ -35,15 +43,43 @@ const StartUp = () => {
   );
 };
 
-const DashboardStack = ({ navigation, route }) => {
-  if (route.state && route.state.index > 0) {
-    navigation.setOptions({ tabBarVisible: false });
-  }
+const DashboardStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Dashboard" component={Dashboard} />
-      <Stack.Screen name="SubjectDetails" component={SubjectDetails} />
+      <Stack.Screen name="SubjectStack" component={SubjectStack} />
     </Stack.Navigator>
+  );
+};
+
+const SubjectStack = () => {
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      <CustomTopTab name="Hello" />
+      <TopTab.Navigator
+        screenOptions={{
+          tabBarLabelStyle: { fontFamily: "lato-bold", fontSize: 14 },
+          tabBarActiveTintColor: colors.blue,
+          tabBarInactiveTintColor: "gray",
+        }}
+      >
+        <TopTab.Screen
+          name="SubjectDetails"
+          component={SubjectDetails}
+          options={{ title: "Course" }}
+        />
+        <TopTab.Screen
+          name="SubjectParticipants"
+          component={SubjectParticipants}
+          options={{ title: "Participants" }}
+        />
+        <TopTab.Screen
+          name="SubjectGrades"
+          component={SubjectGrades}
+          options={{ title: "Grades" }}
+        />
+      </TopTab.Navigator>
+    </SafeAreaView>
   );
 };
 
