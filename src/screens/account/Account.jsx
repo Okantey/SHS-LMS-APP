@@ -11,6 +11,8 @@ import { AuthContext } from "../../context/AuthContext";
 export default Account = () => {
   const { user } = useContext(AuthContext);
   const email = user.user_info.email;
+  const firstName = user.user_info.first_name;
+  const lastName = user.user_info.last_name;
   const accountLinks = [
     {
       id: 1,
@@ -85,10 +87,10 @@ export default Account = () => {
         <View className="mt-4 flex-row items-center justify-between">
           <View>
             <Text style={{ fontFamily: "lato-bold" }} className="text-xl">
-              Zuleiha Mohammed
+              {firstName} {lastName}
             </Text>
             <Text style={{ fontFamily: "lato-regular" }} className="text-lg">
-              zuleiha@mohammed.com
+              {email}
             </Text>
             <Text style={{ fontFamily: "lato-regular" }} className="text-lg">
               +233 50 669 8372

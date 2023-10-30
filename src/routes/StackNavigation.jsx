@@ -11,6 +11,7 @@ import {
   SubjectDetails,
   SubjectParticipants,
   SubjectGrades,
+  ChatScreen,
 } from "./../screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TabNavigation from "./TabNavigation";
@@ -89,6 +90,7 @@ const MessagesStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Messages" component={Messages} />
+      <Stack.Screen name="ChatScreen" component={ChatScreen} />
     </Stack.Navigator>
   );
 };
