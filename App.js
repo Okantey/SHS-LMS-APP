@@ -5,7 +5,6 @@ import * as Font from 'expo-font';
 import MainNavigation from "./src/routes/MainNavigation";
 
 
-
 export default function App() {
 	const [fontsLoaded, setFontsLoaded] = useState(false)
 

@@ -7,9 +7,11 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { colors } from "../../global.styles";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useNavigation } from "@react-navigation/native";
 
 export default Account = () => {
-  const { user } = useContext(AuthContext);
+  const navigation = useNavigation();
+  const { user, setToken } = useContext(AuthContext);
   const email = user.user_info.email;
   const firstName = user.user_info.first_name;
   const lastName = user.user_info.last_name;
@@ -71,6 +73,10 @@ export default Account = () => {
       iconTwo: (
         <Ionicons name="arrow-forward-circle-outline" size={30} color="gray" />
       ),
+      purpose: () => {
+        setToken("");
+        navigation.navigate("SelectRole");
+      },
     },
   ];
   return (
@@ -111,6 +117,7 @@ export default Account = () => {
             <TouchableOpacity
               key={link.id}
               className="flex-row justify-between items-center py-4"
+              onPress={link.purpose}
             >
               <View className="flex-row items-center">
                 <View className="mr-6">{link.iconOne}</View>
