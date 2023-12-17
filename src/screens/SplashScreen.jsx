@@ -4,6 +4,7 @@ import { useEffect, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "../global.styles";
+import { StatusBar } from "expo-status-bar";
 
 export default SplashScreen = () => {
   const navigation = useNavigation();
@@ -14,6 +15,7 @@ export default SplashScreen = () => {
   });
   return (
     <SafeAreaView className="bg-white flex-1 justify-center items-center">
+      <StatusBar style="auto" />
       <Image
         source={{
           uri: "https://img.freepik.com/premium-vector/flat-web-template-with-lms-concept-design-concept-learning-management-system_100456-8728.jpg?size=626&ext=jpg&ga=GA1.1.941783686.1692185846&semt=ais",

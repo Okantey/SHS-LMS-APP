@@ -8,6 +8,7 @@ import { colors } from "../../global.styles";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 export default Account = () => {
   const navigation = useNavigation();
@@ -81,6 +82,7 @@ export default Account = () => {
   ];
   return (
     <SafeAreaView className="flex-1 px-4 pt-8  bg-white">
+      <StatusBar style="auto" />
       <View className="border border-blue p-6 rounded-lg relative">
         <View className="absolute top-[-30%] left-5">
           <Image

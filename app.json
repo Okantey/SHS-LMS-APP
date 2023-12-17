@@ -1,20 +1,18 @@
 {
   "expo": {
-    "name": "SHS-LMS-APP",
-    "slug": "SHS-LMS-APP",
+    "name": "VSHS",
+    "slug": "VSHS",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/lms.jpg",
     "userInterfaceStyle": "light",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/lms.jgp",
         "backgroundColor": "#ffffff"
       },
       "package": "com.okantey123.SHSLMSAPP"

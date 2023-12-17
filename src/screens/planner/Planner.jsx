@@ -1,10 +1,12 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View, Image } from "react-native";
 import { UserCalendar } from "../../components";
+import { StatusBar } from "expo-status-bar";
 
 export default Planner = () => {
   return (
     <SafeAreaView className="flex-1 px-4 bg-white">
+      <StatusBar style="auto" />
       <View className="flex flex-row justify-between items-center">
         <Text style={{ fontFamily: "lato-bold", fontSize: 25 }}>Calendar</Text>
         <Image

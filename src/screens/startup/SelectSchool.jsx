@@ -15,6 +15,7 @@ import { colors } from "../../global.styles";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { StatusBar } from "expo-status-bar";
 
 export default SelectSchool = () => {
   const navigation = useNavigation();
@@ -41,6 +42,7 @@ export default SelectSchool = () => {
 
   return (
     <SafeAreaView className="bg-white flex-1 px-4 pt-6">
+      <StatusBar style="auto" />
       <View className="w-full flex flex-row justify-center my-4">
         <Image
           source={{

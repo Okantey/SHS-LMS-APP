@@ -2,11 +2,13 @@ import { TouchableOpacity, Text, Image, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 export default SelectRole = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView className="px-4 bg-white flex-1 justify-center items-center">
+      <StatusBar style="auto" />
       <View className="w-full flex flex-row justify-center mb-20">
         <Image
           source={{

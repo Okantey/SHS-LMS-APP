@@ -1,10 +1,12 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, Image } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { StatusBar } from "expo-status-bar";
 
 export default Notifications = () => {
   return (
     <SafeAreaView className="flex-1 bg-white flex justify-center items-center">
+      <StatusBar style="auto" />
       <Image
         className="w-64 h-64 object-cover"
         source={{

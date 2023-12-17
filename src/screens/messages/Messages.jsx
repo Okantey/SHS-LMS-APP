@@ -3,6 +3,7 @@ import { Text, View, Image } from "react-native";
 import { Accordion, Button } from "../../components";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
+import { StatusBar } from "expo-status-bar";
 
 export default Messages = ({ navigation }) => {
   const { user } = useContext(AuthContext);
@@ -10,6 +11,7 @@ export default Messages = ({ navigation }) => {
   const lastName = user.user_info.last_name;
   return (
     <SafeAreaView className="flex-1 px-4 bg-white">
+      <StatusBar style="auto" />
       <View className="flex flex-row justify-between items-center mb-4">
         <Text style={{ fontFamily: "lato-bold", fontSize: 25 }}>Messages</Text>
         <Image

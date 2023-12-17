@@ -14,6 +14,7 @@ import Axios from "../../api/Axios";
 import "react-native-get-random-values";
 import { colors } from "../../global.styles";
 import { AuthContext } from "../../context/AuthContext";
+import { StatusBar } from "expo-status-bar";
 
 export default ChatScreen = ({ navigation, route }) => {
   const { token } = useContext(AuthContext);
@@ -79,6 +80,7 @@ export default ChatScreen = ({ navigation, route }) => {
 
   return (
     <SafeAreaView className="flex-1 bg-white px-2 flex justify-between">
+      <StatusBar style="auto" />
       <View>
         <View className="w-full flex flex-row items-center">
           <BackButton onPress={() => navigation.goBack()} />
