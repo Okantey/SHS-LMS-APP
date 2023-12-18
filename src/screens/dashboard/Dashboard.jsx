@@ -14,6 +14,7 @@ import { colors, styles } from "../../global.styles";
 import Axios from "../../api/Axios";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import martin from "../../../assets/martin.jpg";
 
 export default Dashboard = ({ navigation }) => {
   const { user, token, setSubject } = useContext(AuthContext);
@@ -89,9 +90,7 @@ export default Dashboard = ({ navigation }) => {
               </Text>
             </View>
             <Image
-              source={{
-                uri: "https://img.freepik.com/free-photo/happy-african-american-young-man-colorful-shirt-wearing-glasses-looking-camera-smiling-cheerfully_141793-108881.jpg?w=740&t=st=1698417032~exp=1698417632~hmac=7b862e2fcf31027441c2e466fb8ed89a9c308517ed66afa5f67bdf137f6f7850",
-              }}
+              source={martin}
               className="w-12 h-12 object-contain rounded-full"
             />
           </View>

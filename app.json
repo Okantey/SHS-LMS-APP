@@ -4,7 +4,7 @@
     "slug": "VSHS",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/lms.jpg",
+    "icon": "./assets/lms.png",
     "userInterfaceStyle": "light",
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -12,17 +12,17 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/lms.jgp",
+        "foregroundImage": "./assets/lms.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.okantey123.SHSLMSAPP"
+      "package": "com.okantey123.VSHS"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "4d6be6f6-8979-4598-ad50-ccb044acc9b5"
+        "projectId": "acf854ab-04d0-4652-8299-5a896c0719b4"
       }
     }
   }
