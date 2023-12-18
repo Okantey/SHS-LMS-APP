@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
+import martin from "../../../assets/martin.jpg";
 
 export default Account = () => {
   const navigation = useNavigation();
@@ -86,9 +87,7 @@ export default Account = () => {
       <View className="border border-blue p-6 rounded-lg relative">
         <View className="absolute top-[-30%] left-5">
           <Image
-            source={{
-              uri: "https://img.freepik.com/free-photo/happy-african-american-young-man-colorful-shirt-wearing-glasses-looking-camera-smiling-cheerfully_141793-108881.jpg?w=740&t=st=1698417032~exp=1698417632~hmac=7b862e2fcf31027441c2e466fb8ed89a9c308517ed66afa5f67bdf137f6f7850",
-            }}
+            source={martin}
             className="w-12 h-12 object-contain rounded-full"
           />
         </View>
