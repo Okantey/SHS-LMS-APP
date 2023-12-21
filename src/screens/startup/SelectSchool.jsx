@@ -42,7 +42,7 @@ export default SelectSchool = () => {
 
   return (
     <SafeAreaView className="bg-white flex-1 px-4 pt-6">
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="black" style="light" />
       <View className="w-full flex flex-row justify-center my-4">
         <Image
           source={{

@@ -64,7 +64,7 @@ export default Login = ({ navigation, route }) => {
   };
   return (
     <SafeAreaView className="bg-white pt-6 flex-1 flex px-4">
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="black" style="light" />
       <View className="flex flex-row justify-center items-center">
         <Image
           source={{

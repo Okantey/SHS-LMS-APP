@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 export default Notifications = () => {
   return (
     <SafeAreaView className="flex-1 bg-white flex justify-center items-center">
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="black" style="light" />
       <Image
         className="w-64 h-64 object-cover"
         source={{

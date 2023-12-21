@@ -83,7 +83,7 @@ export default Account = () => {
   ];
   return (
     <SafeAreaView className="flex-1 px-4 pt-8  bg-white">
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="black" style="light" />
       <View className="border border-blue p-6 rounded-lg relative">
         <View className="absolute top-[-30%] left-5">
           <Image

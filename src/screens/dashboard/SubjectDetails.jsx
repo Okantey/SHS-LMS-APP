@@ -4,11 +4,13 @@ import { AuthContext } from "../../context/AuthContext";
 import { useContext, useState, useEffect } from "react";
 import Axios from "../../api/Axios";
 import { colors, styles } from "../../global.styles";
+import { StatusBar } from "expo-status-bar";
 export default SubjectDetails = ({ navigation }) => {
   const DETAILS_URL = "lms/registered_subjects/?subject_name=";
   const [subjectDetails, setSubjectDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { subject, token } = useContext(AuthContext);
+
   console.log(subject);
 
   const handleDetailsFetch = async () => {
@@ -34,6 +36,7 @@ export default SubjectDetails = ({ navigation }) => {
   }, []);
   return (
     <SafeAreaView className="flex-1 bg-white px-4">
+      <StatusBar backgroundColor="black" style="light" />
       {isLoading ? (
         <View className="flex-1 justify-center items-center">
           <ActivityIndicator size={30} color={colors.blue} />
@@ -42,10 +45,7 @@ export default SubjectDetails = ({ navigation }) => {
           </Text>
         </View>
       ) : (
-        <ScrollView
-          className="flex-1 -mt-6"
-          showsVerticalScrollIndicator={false}
-        >
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
           <Text
             style={{ fontFamily: "lato-bold" }}
             className="text-3xl text-blue"

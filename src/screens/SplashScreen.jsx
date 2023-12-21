@@ -15,7 +15,7 @@ export default SplashScreen = () => {
   });
   return (
     <SafeAreaView className="bg-white flex-1 justify-center items-center">
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="black" style="light" />
       <Image
         source={{
           uri: "https://img.freepik.com/premium-vector/flat-web-template-with-lms-concept-design-concept-learning-management-system_100456-8728.jpg?size=626&ext=jpg&ga=GA1.1.941783686.1692185846&semt=ais",

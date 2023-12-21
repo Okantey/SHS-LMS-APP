@@ -11,7 +11,7 @@ export default Messages = ({ navigation }) => {
   const lastName = user.user_info.last_name;
   return (
     <SafeAreaView className="flex-1 px-4 bg-white">
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="black" style="light" />
       <View className="flex flex-row justify-between items-center mb-4">
         <Text style={{ fontFamily: "lato-bold", fontSize: 25 }}>Messages</Text>
         <Image

@@ -80,12 +80,12 @@ export default ChatScreen = ({ navigation, route }) => {
 
   return (
     <SafeAreaView className="flex-1 bg-white px-2 flex justify-between">
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="black" style="light" />
       <View>
         <View className="w-full flex flex-row items-center">
           <BackButton onPress={() => navigation.goBack()} />
-          <Text style={{ fontFamily: "lato-bold", fontSize: 22 }}>
-            {first} {last} - Personal Space
+          <Text style={{ fontFamily: "lato-bold", fontSize: 20 }}>
+            {first} - Personal Space
           </Text>
         </View>
       </View>
@@ -128,7 +128,6 @@ export default ChatScreen = ({ navigation, route }) => {
       <View className="w-full flex flex-row items-center">
         <TextInput
           placeholder="Type a message..."
-          autoFocus
           className="flex-1 bg-smoke py-4 px-4 rounded-full my-2 text-lg"
           onChangeText={(text) => setMessage(text)}
           value={message}

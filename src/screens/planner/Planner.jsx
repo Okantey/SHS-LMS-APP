@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 export default Planner = () => {
   return (
     <SafeAreaView className="flex-1 px-4 bg-white">
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="black" style="light" />
       <View className="flex flex-row justify-between items-center">
         <Text style={{ fontFamily: "lato-bold", fontSize: 25 }}>Calendar</Text>
         <Image

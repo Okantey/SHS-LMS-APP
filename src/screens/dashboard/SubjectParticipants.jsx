@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { MaterialIcons } from "@expo/vector-icons";
 import { colors } from "../../global.styles";
 import Axios from "../../api/Axios";
+import { StatusBar } from "expo-status-bar";
 export default SubjectParticipants = () => {
   const PARTICIPANTS_URL =
     "/lms/registered_subjects/participants/?subject_name=";
@@ -34,6 +35,7 @@ export default SubjectParticipants = () => {
   }, []);
   return (
     <SafeAreaView className="flex-1 bg-white px-4 -mt-6">
+      <StatusBar backgroundColor="black" style="light" />
       {isLoading ? (
         <View className="flex-1 justify-center items-center">
           <ActivityIndicator size={30} color={colors.blue} />

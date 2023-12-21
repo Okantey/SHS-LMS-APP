@@ -8,7 +8,7 @@ export default SelectRole = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView className="px-4 bg-white flex-1 justify-center items-center">
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="black" style="light" />
       <View className="w-full flex flex-row justify-center mb-20">
         <Image
           source={{

@@ -15,6 +15,7 @@ import Axios from "../../api/Axios";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import martin from "../../../assets/martin.jpg";
+import { StatusBar } from "expo-status-bar";
 
 export default Dashboard = ({ navigation }) => {
   const { user, token, setSubject } = useContext(AuthContext);
@@ -68,6 +69,7 @@ export default Dashboard = ({ navigation }) => {
 
   return (
     <SafeAreaView className="flex-1 bg-white px-4">
+      <StatusBar backgroundColor="black" style="light" />
       {isLoading ? (
         <View className="flex-1 justify-center items-center">
           <ActivityIndicator size={50} color={colors.blue} />
